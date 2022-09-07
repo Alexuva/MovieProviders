@@ -19,10 +19,10 @@ async def read_item():
                 "Error": "No se encuentran proveedores para esa película"
             }
         ]
-@app.get("/movie={id}")
-async def read_item(id):
+@app.get("/movie={movieid}")
+async def read_item(movieid):
     try:
-        return movie.searchproviders(id)
+        return movie.searchproviders(movieid)
     except:
         return [
             {
