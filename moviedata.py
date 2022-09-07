@@ -2,14 +2,14 @@ from requests_html import HTMLSession
 
 
 class Movie():
-
     def searchproviders(self, movieid):
         url = f"https://www.themoviedb.org/movie/{movieid}/watch?language=es-ES"
         s = HTMLSession()
         r = s.get(url)
         print(r.status_code)
-        providersList = []
+
         providersDiv = r.html.find("div.ott_provider")
+        providersList = []
         for providerDivBueno in providersDiv:
             titulo = providerDivBueno.find("h3", first=True)
             if titulo.text == "Stream":
@@ -27,5 +27,9 @@ class Movie():
                     }
 
                     providersList.append(proveedor)
-
+        print(providersList)
         return providersList
+
+peli = Movie()
+
+peli.searchproviders(767)
