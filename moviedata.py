@@ -3,7 +3,7 @@ from requests_html import HTMLSession
 
 class Movie():
     def searchproviders(self, movieid):
-        url = f"https://www.themoviedb.org/movie/{movieid}/watch?language=es-ES"
+        url = f"https://www.themoviedb.org/movie/{movieid}/watch?locale=ES&language=es-ES"
         s = HTMLSession()
         r = s.get(url)
         print(r.status_code)
