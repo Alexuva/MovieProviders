@@ -19,12 +19,12 @@ class Movie():
                     providerName = link.attrs["title"].split("en")[1]
                     providerPick = "https://www.themoviedb.org/" + link.find("img", first=True).attrs["src"]
 
-                    provider = {
+                    proveedor = {
                         "Proveedor": f"{providerName}",
                         "Link": f"{providerLink}",
                         "Imagen": f"{providerPick}"
                     }
 
-                    providersList.append(provider)
+                    providersList.append(proveedor)
 
         return providersList
