@@ -4,8 +4,9 @@ from requests_html import HTMLSession
 class Movie():
 
     def searchproviders(self, movieid):
+        url = f"https://www.themoviedb.org/movie/{movieid}/watch?language=es-ES"
         s = HTMLSession()
-        r = s.get(f"https://www.themoviedb.org/movie/{movieid}/watch?language=es-ES")
+        r = s.get(url)
         print(r.status_code)
         providersList = []
         providersDiv = r.html.find("div.ott_provider")
