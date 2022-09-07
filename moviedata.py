@@ -1,6 +1,5 @@
 from requests_html import HTMLSession
 
-
 class Movie():
 
     def searchproviders(self, id):
