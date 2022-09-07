@@ -1,10 +1,13 @@
 
 from fastapi import FastAPI
 from moviedata import Movie
+from tvdata import Tv
 
 app = FastAPI()
 
 movie = Movie()
+
+tv = Tv()
 
 @app.get("/")
 async def bienvenido():
@@ -21,5 +24,16 @@ async def read_item(movieid):
         return [
             {
                 "Error": "No se encuentran proveedores para esa película"
+            }
+        ]
+
+@app.get("/tv={tvid}")
+async def read_item(tvid):
+    try:
+        return tv.searchproviders(tvid)
+    except:
+        return [
+            {
+                "Error": "No se encuentran proveedores para esa serie"
             }
         ]

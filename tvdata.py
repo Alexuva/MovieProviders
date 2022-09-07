@@ -1,15 +1,15 @@
 from requests_html import HTMLSession
 
 
-class Movie():
-    def searchproviders(self, movieid):
-        url = f"https://www.themoviedb.org/movie/{movieid}/watch?locale=ES&language=es-ES"
+class Tv():
+    def searchproviders(self, tvid):
+        url = f"https://www.themoviedb.org/tv/{tvid}/watch?locale=ES&language=es-ES"
         s = HTMLSession()
         r = s.get(url)
         if r.status_code != 200:
             return [
                 {
-                    "Error": "El título que buscas no existe o no es una pelicula "
+                    "Error": "El título que buscas no existe o no es una serie "
                 }
             ]
 
